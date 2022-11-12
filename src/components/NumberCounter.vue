@@ -1,33 +1,21 @@
-<script>
-export default {
-  props: ['todos'],
-  data() {
-    return {
-      counter: 0,
-    };
-  },
-  methods: {
-    handleClickPlus() {
-      this.counter++;
-    },
-    handleClickMinus() {
-      this.counter--;
-    },
-  },
-};
+<script setup>
+import { useCounterStore } from '../stores/NumberCounter';
+const store = useCounterStore();
 </script>
 
 <template>
   <div class="box wrapper has-text-centered">
-    <h1 class="title is-3 has-text-info has-text-centered">{{ counter }}</h1>
+    <h1 class="title is-3 has-text-info has-text-centered">
+      {{ store.counter }}
+    </h1>
     <button
       class="button is-primary mr-3"
-      @click="handleClickMinus"
-      :disabled="counter <= 0"
+      @click="store.decrement()"
+      :disabled="store.counter <= 0"
     >
       -
     </button>
-    <button class="button is-primary ml-3" @click="handleClickPlus">+</button>
+    <button class="button is-primary ml-3" @click="store.increment()">+</button>
   </div>
 </template>
 

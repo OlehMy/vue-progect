@@ -8,12 +8,6 @@ export default {
     };
   },
   methods: {
-    handleClickPlus() {
-      this.counter++;
-    },
-    handleClickMinus() {
-      this.counter--;
-    },
     handleSubmit() {
       if (this.title) {
         this.add(this.title);
