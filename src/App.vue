@@ -2,11 +2,13 @@
 import 'bulma/css/bulma.css';
 import NumberCounter from './components/NumberCounter.vue';
 import TodoList from './components/TodoList.vue';
+import TodoListPinia from './components/TodoListPinia.vue';
 
 export default {
   components: {
     TodoList,
     NumberCounter,
+    TodoListPinia,
   },
   data() {
     return {
@@ -59,6 +61,7 @@ export default {
         @toggle="toggleTodo"
         @remove="removeTodo"
       />
+      <TodoListPinia />
       <NumberCounter />
     </div>
   </header>
